@@ -14,10 +14,11 @@ usage()
     -h      Show this message
     -u      the user name
     -p      the password
+    -a      access from anywhere
 EOF
 }
 
-while getopts “hp:u:” OPTION
+while getopts "ahp:u:" OPTION
 do
     case $OPTION in
         h)
@@ -30,6 +31,10 @@ do
         u)
             USER=$OPTARG
             ;;
+        a)
+            FILE=create_user_with_database_all.sql
+            ;;
+
         ?)
             usage
             exit
